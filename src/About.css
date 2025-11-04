@@ -1,0 +1,41 @@
+.about {
+  min-height: 100vh;
+  padding: 6rem 3rem 3rem;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
+
+.about h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-img {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+
+.about p {
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.about-quote {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-weight: 500;
+}

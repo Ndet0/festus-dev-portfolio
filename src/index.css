@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Fallback color while image is loading or if it fails */
+  background-color: #eaeaea;
+  /* When the image lives inside src (bundler-managed), reference it relative to this CSS file.
+     Move public/backtest.jpeg -> src/assets/backtest.jpeg and then the bundler will process it.
+  */
+  background-image: url('./assets/backtest.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #000;
+}
