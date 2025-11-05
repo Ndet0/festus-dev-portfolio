@@ -1,4 +1,4 @@
-.header {
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -28,11 +28,36 @@
   text-decoration: none;
   color: #000;
   font-weight: 500;
+  position: relative;
   transition: color 0.3s ease;
 }
 
+/* Hover effect */
 .nav-links a:hover {
-  color: gray;
+  color: lightblue;
+}
+
+/* ✅ Active link styling */
+.nav-links a.active {
+  color: blue;
+  font-weight: 600;
+}
+
+/* ✅ Smooth underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: blue;
+  transition: width 0.3s ease;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .social-select {

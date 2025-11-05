@@ -1,0 +1,170 @@
+/* 🌌 CONTACT SECTION */
+.contact {
+  position: relative;
+  padding: 120px 20px;
+  color: #000;
+  text-align: center;
+  overflow: hidden;
+  background: url("/contact.jpeg") center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+/* Ensure all child elements stay above overlay */
+.contact * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Smooth content entrance */
+.contact-content {
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+/* Title Styling */
+.contact h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.contact-subtitle {
+  font-size: 20px;
+  margin-bottom: 45px;
+  color: #000;
+  font-weight: 400;
+}
+
+/* 📨 CONTACT FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 12px rgba(30, 144, 255, 0.7);
+  transform: scale(1.02);
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Submit button */
+.contact-form button {
+  padding: 12px 35px;
+  border: none;
+  border-radius: 30px;
+  background-color: dodgerblue;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0073e6;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌐 SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 45px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: dodgerblue;
+  transform: scale(1.25);
+}
+
+/* 🔔 TOAST NOTIFICATION */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 123, 255, 0.95);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  animation: slideIn 0.5s ease forwards, fadeOut 0.5s ease 3.5s forwards;
+}
+
+/* ✅ ANIMATIONS */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 40px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    bottom: -100px;
+    opacity: 0;
+  }
+}

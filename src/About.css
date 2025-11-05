@@ -1,22 +1,58 @@
 .about {
-  min-height: 100vh;
-  padding: 6rem 3rem 3rem;
-  background-color: #fff;
-  color: #000;
+  background-image: url('/about.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  color: #111;
+  padding: 80px 20px;
   text-align: center;
+  overflow: hidden;
 }
 
+/* Overlay setup */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: background 0.5s ease;
+  backdrop-filter: blur(4px);
+}
+
+.about * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark overlay → for bright images */
+.about.dark-overlay::before {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/* Light overlay → for dark images */
+.about.light-overlay::before {
+  background: rgba(255, 255, 255, 0.4);
+  color: #111;
+}
+
+/* Headings & content */
 .about h1 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
 }
 
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .about-img {
@@ -24,18 +60,94 @@
   height: 380px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #000;
+  border: 3px solid black;
 }
 
-.about p {
-  max-width: 700px;
-  line-height: 1.6;
-  margin: 0 auto;
+.about-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.about-content p {
   font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
 }
 
 .about-quote {
-  margin-top: 1.5rem;
   font-style: italic;
+  color: #000;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Buttons section */
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin:0px;
+}
+
+.about-buttons button {
+  padding: 10px 25px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  border-radius: 30px;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover and active state */
+.about-buttons button:hover {
+  background-color: black;
+  color: white;
+  margin-bottom:30px;
+}
+
+.about-buttons .active {
+  background-color: black;
+  color: white;
+}
+
+/* Theme adjustments */
+.about.dark-overlay .about-buttons button {
+  border-color: white;
+  color: white;
+}
+
+.about.dark-overlay .about-buttons button:hover,
+.about.dark-overlay .about-buttons .active {
+  background-color: white;
+  color: black;
+}
+
+.about.light-overlay .about-buttons button {
+  border-color: black;
+  color: black;
+}
+
+.about.light-overlay .about-buttons button:hover,
+.about.light-overlay .about-buttons .active {
+  background-color: black;
+  color: white;
+}
+
+/* Fade-in on scroll animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,72 +1,103 @@
 .hero {
+  background-image: url('/backtest.jpeg'); /* image inside /public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
-  padding: 2rem;
-  background-color: #fff;
-  color: #000;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .hero-content {
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.about-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid white;
 }
 
 .hero h1 {
   font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .hero h1 span {
-  color: #000;
+  color: #f0f0f0;
+  font-weight: bold;
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #e0e0e0;
 }
 
 .hero-text {
   font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  color: #222;
+  line-height: 1.6;
+  color: #dcdcdc;
+  margin-bottom: 25px;
 }
 
+/* Buttons */
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 15px;
 }
 
 .btn {
-  padding: 0.8rem 1.8rem;
-  border-radius: 2rem;
   text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .btn.primary {
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: black;
 }
 
 .btn.primary:hover {
-  background-color: gray;
+  background-color: black;
+  color: white;
 }
 
 .btn.secondary {
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid white;
+  color: white;
 }
 
 .btn.secondary:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: black;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
 }
 
