@@ -74,3 +74,124 @@
     transform: translateY(0);
   }
 }
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+  /* ===== HERO ===== */
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  /* ===== ABOUT ===== */
+  .about h1 {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  .about-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* ===== PROJECTS ===== */
+  .projects {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .projects h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .coming-soon {
+    font-size: 1.2rem;
+    padding: 10px 25px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    padding: 80px 15px;
+  }
+
+  .contact h1 {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    max-width: 100%;
+  }
+
+  .contact-form textarea {
+    height: 100px;
+  }
+
+  .contact-form button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 15px;
+  }
+
+  .social-icons a {
+    font-size: 1.5rem;
+  }
+}
