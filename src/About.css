@@ -152,7 +152,7 @@
   }
 }
 /* ===== MOBILE RESPONSIVE STYLES ===== */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   /* ===== HERO ===== */
   .hero {
     height: auto;
