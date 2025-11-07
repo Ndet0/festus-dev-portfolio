@@ -67,7 +67,7 @@ header {
   cursor: pointer;
 }
 /* ===== MOBILE RESPONSIVE STYLES ===== */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   /* ===== HERO ===== */
   .hero {
     height: auto;
