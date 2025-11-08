@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hobbies - Festus Kisoi</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px;
+        position: relative;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* 🎥 Cinematic background slideshow */
+      .slideshow {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(1.05);
+        animation: fadeZoom 25s infinite ease-in-out;
+        filter: brightness(60%) blur(2px);
+      }
+
+      .slide:nth-child(1) {
+        background-image: url("/hobby1.jpeg"); /* Swimming */
+        animation-delay: 0s;
+      }
+      .slide:nth-child(2) {
+        background-image: url("/hobby2.jpeg"); /* Movies */
+        animation-delay: 5s;
+      }
+      .slide:nth-child(3) {
+        background-image: url("/hobby3.jpeg"); /* Travelling */
+        animation-delay: 10s;
+      }
+      .slide:nth-child(4) {
+        background-image: url("/hobby4.jpeg"); /* Coding */
+        animation-delay: 15s;
+      }
+      .slide:nth-child(5) {
+        background-image: url("/hobby5.jpeg"); /* Photography */
+        animation-delay: 20s;
+      }
+
+      @keyframes fadeZoom {
+        0% {
+          opacity: 0;
+          transform: scale(1.02);
+        }
+        8% {
+          opacity: 1;
+          transform: scale(1.04);
+        }
+        40% {
+          opacity: 1;
+          transform: scale(1.07);
+        }
+        60% {
+          opacity: 0;
+          transform: scale(1.1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.02);
+        }
+      }
+
+      h1,
+      .hobby,
+      a {
+        position: relative;
+        z-index: 2;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        border-bottom: 2px solid white;
+        padding-bottom: 10px;
+        margin-bottom: 40px;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .hobby {
+        max-width: 700px;
+        text-align: left;
+        margin-bottom: 30px;
+        line-height: 1.7;
+        background: rgba(0, 0, 0, 0.55);
+        padding: 20px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(3px);
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .hobby:hover {
+        transform: translateY(-5px);
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        border: 1px solid white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        margin-top: 30px;
+      }
+
+      a:hover {
+        background: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 🎬 Background slideshow -->
+    <div class="slideshow">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+
+    <h1>Hobbies</h1>
+
+    <div class="hobby">
+      <h2>🏊 Swimming</h2>
+      <p>
+        Swimming keeps me sane — it’s the one place my brain actually shuts up after hours of coding. 
+        Nothing beats that calm under the water after staring at a screen all day.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>🎬 Watching Movies</h2>
+      <p>
+        I’m a big-time movie nerd. <em>Game of Thrones</em>, <em>The Walking Dead</em>, <em>Top Boy</em>, <em>Snowfall</em> — that’s my vibe. 
+        I’d probably show up to Halloween as <strong>Negan</strong> or <strong>Jon Snow</strong>.  
+        I love sci-fi adventures like <em>Jurassic Park</em>, horror flicks, and thrillers like <em>Wrong Turn</em>.  
+        When I just want to chill and laugh, <em>Friends</em> is my comfort show — total <strong>Chandler</strong> energy.  
+        Also, shoutout to <strong>Damson Idris</strong> — that man owns every role he plays.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>✈️ Travelling</h2>
+      <p>
+        I’m always down for a road trip with friends — blasting music, random convos, and chasing sunsets. 
+        I love admiring nature, taking videos of priceless views, and just soaking in the moment.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>💻 Coding</h2>
+      <p>
+        Movies like <em>Mr. Robot</em> and <em>The Amateur</em> pulled me into coding. 
+        There’s something cool about building stuff that actually works — it’s chaos, but the good kind.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>📸 Photography & Videography</h2>
+      <p>
+        I like capturing the little things — sunsets, reflections, and city lights. 
+        It’s how I freeze time and keep memories alive.
+      </p>
+    </div>
+
+    <div class="hobby">
+      <h2>🎧 Music</h2>
+      <p>
+        Music runs my world. Whether it’s <strong>Tems</strong>, <strong>Dave</strong>, <strong>Brent Faiyaz</strong>, 
+        or legends like <strong>Michael Jackson</strong>, there’s always a track that fits the vibe. 
+        Coding hits different when the playlist’s right.
+      </p>
+    </div>
+
+    <a href="/" target="_self">← Back to Portfolio</a>
+  </body>
+</html>
