@@ -8,6 +8,7 @@ function Hero() {
           src="/prof1.jpeg"
           alt="Festus Kisoi"
           className="about-img"
+          loading="lazy"
         />
         <h1>
           Hi, I’m <span>Festus Kisoi</span>

@@ -47,7 +47,7 @@ function About() {
     >
       <h1>Full Stack Web Developer</h1>
       <div className="about-content">
-        <img src="./prof1.jpeg" alt="Festus Kisoi" className="about-img" />
+        <img src="./prof1.jpeg" alt="Festus Kisoi" className="about-img" loading="lazy" />
         <div>
           <h2>Welcome to my portfolio</h2>
           <p>

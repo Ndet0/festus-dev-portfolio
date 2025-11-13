@@ -4,10 +4,16 @@ import { useState, useEffect } from 'react';
 function Header() {
   const [activeSection, setActiveSection] = useState('home');
   const [social, setSocial] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSocialChange = (e) => {
     const url = e.target.value;
     if (url) window.open(url, '_blank');
+  };
+
+  // Close menu when a link is clicked
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
   };
 
   // ✅ Detect which section is active based on scroll position
@@ -39,13 +45,28 @@ function Header() {
   return (
     <header className="header">
       <h1 className="logo">Festus Dev</h1>
-      <nav>
+      
+      {/* Hamburger menu button */}
+      <button 
+        className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
             <a
               href="#home"
               className={activeSection === 'home' ? 'active' : ''}
-              onClick={() => setActiveSection('home')}
+              onClick={() => {
+                setActiveSection('home');
+                handleNavClick();
+              }}
             >
               Home
             </a>
@@ -54,7 +75,10 @@ function Header() {
             <a
               href="#about"
               className={activeSection === 'about' ? 'active' : ''}
-              onClick={() => setActiveSection('about')}
+              onClick={() => {
+                setActiveSection('about');
+                handleNavClick();
+              }}
             >
               About
             </a>
@@ -63,7 +87,10 @@ function Header() {
             <a
               href="#projects"
               className={activeSection === 'projects' ? 'active' : ''}
-              onClick={() => setActiveSection('projects')}
+              onClick={() => {
+                setActiveSection('projects');
+                handleNavClick();
+              }}
             >
               Projects
             </a>
@@ -73,6 +100,7 @@ function Header() {
               href="https://github.com/Ndet0"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleNavClick}
             >
               GitHub
             </a>
@@ -81,7 +109,10 @@ function Header() {
             <a
               href="#contact"
               className={activeSection === 'contact' ? 'active' : ''}
-              onClick={() => setActiveSection('contact')}
+              onClick={() => {
+                setActiveSection('contact');
+                handleNavClick();
+              }}
             >
               Contact
             </a>
