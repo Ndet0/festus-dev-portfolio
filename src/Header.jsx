@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 function Header() {
   const [activeSection, setActiveSection] = useState('home');
   const [social, setSocial] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSocialChange = (e) => {
     const url = e.target.value;
@@ -36,16 +37,30 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setIsMenuOpen(false); // Close menu on navigation
+  };
+
   return (
     <header className="header">
       <h1 className="logo">Festus Dev</h1>
       <nav>
-        <ul className="nav-links">
+        <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <li>
             <a
               href="#home"
               className={activeSection === 'home' ? 'active' : ''}
-              onClick={() => setActiveSection('home')}
+              onClick={() => handleNavClick('home')}
             >
               Home
             </a>
@@ -54,7 +69,7 @@ function Header() {
             <a
               href="#about"
               className={activeSection === 'about' ? 'active' : ''}
-              onClick={() => setActiveSection('about')}
+              onClick={() => handleNavClick('about')}
             >
               About
             </a>
@@ -63,7 +78,7 @@ function Header() {
             <a
               href="#projects"
               className={activeSection === 'projects' ? 'active' : ''}
-              onClick={() => setActiveSection('projects')}
+              onClick={() => handleNavClick('projects')}
             >
               Projects
             </a>
@@ -81,7 +96,7 @@ function Header() {
             <a
               href="#contact"
               className={activeSection === 'contact' ? 'active' : ''}
-              onClick={() => setActiveSection('contact')}
+              onClick={() => handleNavClick('contact')}
             >
               Contact
             </a>
