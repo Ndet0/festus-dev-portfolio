@@ -1,22 +1,33 @@
 import './Header.css';
 import { useState, useEffect } from 'react';
 
+// Header component: shows logo, navigation links and a mobile hamburger menu.
+// - Highlights the active section based on scroll position
+// - Provides a hamburger menu for small screens which toggles the nav
 function Header() {
+  // activeSection: which page section is currently active (home/about/projects/contact)
   const [activeSection, setActiveSection] = useState('home');
+  // social: value for the socials <select> control
   const [social, setSocial] = useState('');
+  // isMenuOpen: whether the mobile slide-in menu is open
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Opens the selected social link in a new tab
   const handleSocialChange = (e) => {
     const url = e.target.value;
     if (url) window.open(url, '_blank');
   };
 
-  // Close menu when a link is clicked
+  // Close menu when a nav link is clicked (used on mobile)
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
 
-  // ✅ Detect which section is active based on scroll position
+  // Detect which section is currently visible and update activeSection.
+  // This uses window.scrollY and the DOM to find section positions. It runs
+  // on scroll and updates the highlighted link in the nav. The offset (-120)
+  // accounts for the fixed header height so the correct section becomes active
+  // when it appears below the header.
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
@@ -30,7 +41,7 @@ function Header() {
         }
       });
 
-      // ✅ If near the top, mark "home" as active
+      // If near the top, mark "home" as active
       if (window.scrollY < 100) {
         current = 'home';
       }
@@ -45,9 +56,9 @@ function Header() {
   return (
     <header className="header">
       <h1 className="logo">Festus Dev</h1>
-      
-      {/* Hamburger menu button */}
-      <button 
+
+      {/* Hamburger menu button: visible on small screens only (CSS controls visibility) */}
+      <button
         className={`hamburger ${isMenuOpen ? 'active' : ''}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle navigation menu"
@@ -57,6 +68,7 @@ function Header() {
         <span></span>
       </button>
 
+      {/* Navigation. When isMenuOpen is true the CSS 'open' class slides the menu in on mobile */}
       <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav-links">
           <li>
@@ -118,6 +130,7 @@ function Header() {
             </a>
           </li>
           <li>
+            {/* Social links select - open selected social in new tab */}
             <select
               className="social-select"
               value={social}

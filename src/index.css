@@ -1,3 +1,13 @@
+/*
+  Global styles and responsive breakpoints
+
+  Notes:
+  - We add `padding-top` to the body to account for the fixed header height so
+    content isn't hidden under the header on small screens.
+  - The file uses three breakpoints: small phones (<480px), medium (480-768px),
+    and large (>768px). Adjust these values if needed for your target devices.
+*/
+
 * {
   margin: 0;
   padding: 0;

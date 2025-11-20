@@ -6,6 +6,10 @@ function About() {
   const [isVisible, setIsVisible] = useState(false);
 
   // 🔍 Detect image brightness and apply light/dark overlay
+  // This computes the average brightness of the background image so we can
+  // decide whether to use a dark or light overlay for readable text. Note:
+  // reading pixel data from a canvas is CPU work — consider caching or
+  // server-side preprocessing for very large images or low-end devices.
   useEffect(() => {
     const img = new Image();
     img.src = "/about.jpeg";
@@ -28,6 +32,9 @@ function About() {
   }, []);
 
   // 👀 Detect when About section enters viewport
+  // We use IntersectionObserver so the fade-in animation only runs when
+  // the section is visible — this is more efficient than listening to scroll
+  // events and helps with performance on mobile devices.
   useEffect(() => {
     const section = document.getElementById("about");
     const observer = new IntersectionObserver(
@@ -47,6 +54,7 @@ function About() {
     >
       <h1>Full Stack Web Developer</h1>
       <div className="about-content">
+        {/* Profile image: `loading="lazy"` defers loading until it is near the viewport */}
         <img src="./prof1.jpeg" alt="Festus Kisoi" className="about-img" loading="lazy" />
         <div>
           <h2>Welcome to my portfolio</h2>

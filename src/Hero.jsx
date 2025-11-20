@@ -1,5 +1,9 @@
 import './Hero.css';
 
+// Hero section: full-screen background (set in CSS) with a centered content box.
+// The background image is controlled in `Hero.css`. The profile <img> uses
+// `loading="lazy"` so it doesn't block the initial page render on slow networks.
+
 function Hero() {
   return (
     <section  id="home" className="hero">
