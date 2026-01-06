@@ -1,31 +1,49 @@
 import './Hero.css';
-
-// Hero section: full-screen background (set in CSS) with a centered content box.
-// The background image is controlled in `Hero.css`. The profile <img> uses
-// `loading="lazy"` so it doesn't block the initial page render on slow networks.
+import { useState, useEffect } from 'react';
 
 function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations on mount
+    setIsVisible(true);
+  }, []);
+
   return (
-    <section  id="home" className="hero">
-      <div className="hero-content">
-        <img
-          src="/prof1.jpeg"
-          alt="Festus Kisoi"
-          className="about-img"
-          loading="lazy"
-        />
-        <h1>
-          Hi, I’m <span>Festus Kisoi</span>
+    <section className="hero" id="home">
+      <div className={`hero-content ${isVisible ? 'animate' : ''}`}>
+        <h1 className="animate-delay-1">
+          Backend-Focused <span>Full-Stack Engineer</span>
         </h1>
-        <p className="hero-subtitle">Full Stack Web Developer</p>
-        <p className="hero-text">
-          I build elegant and robust web applications — from responsive front-ends 
-          to scalable back-end solutions. I’m passionate about clean design, 
-          performance, and seamless user experiences.
+
+        <p className="animate-delay-2">
+          I build reliable APIs, debug complex systems, and turn real-world
+          requirements into working software.
         </p>
-        <div className="hero-buttons">
-          <a href="#projects" className="btn primary">View My Work</a>
-          <a href="#contact" className="btn secondary">Contact Me</a>
+
+        <p className="animate-delay-3">
+          Experienced with Flask, relational databases, and RESTful architecture,
+          with a growing interest in data-driven problem solving and analytics.
+        </p>
+
+        <div className="hero-cta animate-delay-4">
+          <a href="#projects" className="btn-primary">View Projects</a>
+          <a href="#contact" className="btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+
+      <div className={`hero-image ${isVisible ? 'animate' : ''}`}>
+        <div className="image-wrapper">
+          <img
+            src="/prof1.jpeg"
+            alt="Festus Ndeto - Full-Stack Engineer"
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
+            className={imageLoaded ? 'loaded' : ''}
+          />
+          {!imageLoaded && <div className="image-placeholder"></div>}
         </div>
       </div>
     </section>
@@ -33,3 +51,4 @@ function Hero() {
 }
 
 export default Hero;
+

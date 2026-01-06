@@ -1,373 +1,116 @@
-/*
-  Global styles and responsive breakpoints
-
-  Notes:
-  - We add `padding-top` to the body to account for the fixed header height so
-    content isn't hidden under the header on small screens.
-  - The file uses three breakpoints: small phones (<480px), medium (480-768px),
-    and large (>768px). Adjust these values if needed for your target devices.
-*/
-
-* {
+/* ===== CSS RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --accent: #38bdf8;
+  --text-primary: #e5e7eb;
+  --text-secondary: #cbd5f5;
+  --muted: #94a3b8;
+}
+
+/* ===== GLOBAL STYLES ===== */
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  /* Fallback color while image is loading or if it fails */
-  background-color: #eaeaea;
-  color: #000;
-  /* Account for fixed header (80px typical) */
-  padding-top: 80px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
-/* ===== MOBILE RESPONSIVE STYLES ===== */
 
-/* Small phones (< 480px) */
-@media (max-width: 479px) {
-  html {
-    font-size: 14px;
-  }
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  body {
-    padding-top: 70px;
-  }
+/* ===== SECTIONS ===== */
+section {
+  width: 100%;
+}
 
-  /* ===== HERO ===== */
-  .hero {
-    height: auto;
-    padding: 80px 16px 60px;
-    min-height: 100vh;
-  }
+/* ===== HEADINGS ===== */
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 
-  .hero-content {
-    max-width: 100%;
-    padding: 0;
-  }
+/* ===== UTILITIES ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
-  .hero h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
+/* ===== ACCESSIBILITY: SKIP LINK ===== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 1rem 2rem;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.3s ease;
+}
 
-  .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #22d3ee;
+  outline-offset: 2px;
+}
 
-  .hero-text {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
+/* ===== ACCESSIBILITY: FOCUS STATES ===== */
+:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
+:focus:not(:focus-visible) {
+  outline: none;
+}
 
-  .btn {
-    padding: 14px 20px;
-    font-size: 0.95rem;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
-  .about-img {
-    width: 150px;
-    height: 150px;
-  }
+/* ===== BUTTON FOCUS STATES ===== */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+}
 
-  /* ===== HEADER ===== */
-  .header {
-    padding: 1rem 1rem;
-    height: 70px;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .nav-links {
-    gap: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
-  }
-
-  /* ===== ABOUT ===== */
-  .about {
-    padding: 60px 16px;
-  }
-
-  .about h1 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-
-  .about-content h2 {
-    font-size: 1.3rem;
-  }
-
-  .about-content p {
-    font-size: 0.9rem;
-  }
-
-  .about-buttons button {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-    min-height: 48px;
-  }
-
-  /* ===== PROJECTS ===== */
-  .projects {
-    padding: 60px 16px;
-  }
-
-  .projects h1 {
-    font-size: 1.8rem;
-  }
-
-  .subtitle {
-    font-size: 0.95rem;
-  }
-
-  .coming-soon {
-    font-size: 1.1rem;
-    padding: 14px 22px;
-    min-height: 48px;
-  }
-
-  /* ===== CONTACT ===== */
-  .contact {
-    padding: 60px 16px;
-  }
-
-  .contact h1 {
-    font-size: 1.8rem;
-  }
-
-  .contact-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    min-height: 48px;
-  }
-
-  .contact-form textarea {
-    height: 120px;
-    resize: vertical;
-  }
-
-  .contact-form button {
-    padding: 14px 20px;
-    font-size: 1rem;
-    min-height: 48px;
-  }
-
-  .social-icons {
-    gap: 12px;
-  }
-
-  .social-icons a {
-    font-size: 1.4rem;
-    padding: 8px;
-    display: inline-flex;
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* Medium phones & tablets (480px - 768px) */
-@media (min-width: 480px) and (max-width: 768px) {
-  body {
-    padding-top: 75px;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    height: auto;
-    padding: 80px 24px 60px;
-    min-height: 100vh;
-  }
-
-  .hero-content {
-    max-width: 95%;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-  }
-
-  .hero-subtitle {
-    font-size: 1.15rem;
-  }
-
-  .hero-text {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .btn {
-    padding: 14px 25px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about-img {
-    width: 180px;
-    height: 180px;
-  }
-
-  /* ===== HEADER ===== */
-  .header {
-    padding: 1rem 2rem;
-    height: 75px;
-  }
-
-  .logo {
-    font-size: 1.3rem;
-  }
-
-  .nav-links {
-    gap: 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  /* ===== ABOUT ===== */
-  .about {
-    padding: 70px 24px;
-  }
-
-  .about h1 {
-    font-size: 2.2rem;
-    margin-bottom: 35px;
-  }
-
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-  }
-
-  .about-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .about-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .about-img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .about-buttons button {
-    padding: 12px 25px;
-    min-height: 48px;
-  }
-
-  /* ===== PROJECTS ===== */
-  .projects {
-    padding: 70px 24px;
-  }
-
-  .projects h1 {
-    font-size: 2.2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .coming-soon {
-    font-size: 1.2rem;
-    padding: 14px 28px;
-    min-height: 48px;
-  }
-
-  /* ===== CONTACT ===== */
-  .contact {
-    padding: 70px 24px;
-  }
-
-  .contact h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-subtitle {
-    font-size: 1rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    min-height: 48px;
-  }
-
-  .contact-form textarea {
-    height: 120px;
-    resize: vertical;
-  }
-
-  .contact-form button {
-    padding: 14px 28px;
-    font-size: 1rem;
-    min-height: 48px;
-  }
-
-  .social-icons {
-    gap: 15px;
-  }
-
-  .social-icons a {
-    font-size: 1.5rem;
-    padding: 8px;
-  }
-}
-
-/* Large tablets & desktops (> 768px) */
-@media (min-width: 769px) {
-  body {
-    padding-top: 80px;
-  }
-
-  .btn:active,
-  button:active {
-    transform: scale(0.98);
-  }
-}

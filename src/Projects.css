@@ -1,70 +1,145 @@
 .projects {
-  position: relative;
-  padding: 100px 20px;
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-primary);
+}
+
+.projects h2 {
   text-align: center;
-  color: white;
-  background: url("/project.jpeg") center/cover no-repeat;
-  overflow: hidden;
-  height:100vh;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-.projects * {
+  font-size: 2rem;
+  margin-bottom: 3rem;
   position: relative;
-  z-index: 2;
+  padding-bottom: 1rem;
 }
 
-.projects-content {
-  max-width: 800px;
+.projects h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+.projects-grid {
+  max-width: 1100px;
   margin: 0 auto;
-  animation: fadeIn 1s ease forwards;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-.projects h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+.project-card {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out backwards;
 }
 
-.subtitle {
-  color: #e0e0e0;
-  font-size: 1.1rem;
-  margin-bottom: 40px;
+.project-card:nth-child(1) {
+  animation-delay: 0.1s;
 }
 
-.coming-soon {
-  display: inline-block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: dodgerblue;
-  border: 2px solid dodgerblue;
-  padding: 15px 40px;
-  border-radius: 50px;
-  animation: pulse 2s infinite ease-in-out;
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #22d3ee);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-@keyframes fadeIn {
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 15px 40px rgba(56, 189, 248, 0.15);
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: #22d3ee;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(56, 189, 248, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+  transition: background-color 0.3s ease;
+}
+
+.project-card:hover .project-meta {
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+.meta-item {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.meta-item strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.project-link:hover {
+  gap: 0.75rem;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -74,3 +149,27 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 1rem;
+  }
+
+  .projects h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+}
+
