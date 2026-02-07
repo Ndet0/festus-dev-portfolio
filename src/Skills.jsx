@@ -13,36 +13,44 @@ function Skills() {
               <li>Python</li>
               <li>Flask (App Factory, Blueprints)</li>
               <li>RESTful API Design</li>
+              <li>JWT Authentication & Authorization</li>
               <li>SQLAlchemy ORM</li>
               <li>Database Migrations (Flask-Migrate)</li>
+              <li>File Upload Integration (Cloudinary)</li>
             </ul>
           </div>
 
           <div className="skills-group" style={{ animationDelay: '0.2s' }}>
             <h3>Databases</h3>
             <ul>
+              <li>PostgreSQL</li>
               <li>SQLite</li>
-              <li>PostgreSQL (Foundational)</li>
               <li>Relational Data Modeling</li>
+              <li>Query Optimization (Foundational)</li>
             </ul>
           </div>
 
           <div className="skills-group" style={{ animationDelay: '0.3s' }}>
-            <h3>Frontend (Supporting)</h3>
+            <h3>Frontend</h3>
             <ul>
-              <li>React</li>
+              <li>React (Hooks, Context API)</li>
               <li>JavaScript (ES6+)</li>
-              <li>API Integration</li>
+              <li>Tailwind CSS</li>
+              <li>Responsive UI Development</li>
+              <li>API Integration (Axios / Fetch)</li>
+              <li>State Management (Context API)</li>
             </ul>
           </div>
 
           <div className="skills-group" style={{ animationDelay: '0.4s' }}>
             <h3>Tools & Workflow</h3>
             <ul>
-              <li>Git & GitHub</li>
+              <li>Git & GitHub (Collaborative Workflows, PRs)</li>
               <li>Linux / CLI</li>
-              <li>Postman</li>
+              <li>Postman / API Testing</li>
               <li>Debugging & Error Tracing</li>
+              <li>Vercel & Render Deployment</li>
+              <li>Agile / Scrum Team Collaboration</li>
             </ul>
           </div>
         </div>
@@ -52,4 +60,3 @@ function Skills() {
 }
 
 export default Skills;
-
