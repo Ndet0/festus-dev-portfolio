@@ -36,7 +36,7 @@ function Hero() {
       <div className={`hero-image ${isVisible ? 'animate' : ''}`}>
         <div className="image-wrapper">
           <img
-            src="/prof1.jpeg"
+            src="/prof2.jpeg"
             alt="Festus Ndeto - Full-Stack Engineer"
             loading="lazy"
             decoding="async"
