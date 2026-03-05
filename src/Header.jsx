@@ -157,7 +157,7 @@ function Header() {
                   <option value="">Socials</option>
                   <option value="https://www.instagram.com/livelike_ndet.o?igsh=aDIwb3g2eTNpZjRp&utm_source=qr">Instagram</option>
                   <option value="https://www.linkedin.com/in/festus-ndeto-500227262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</option>
-                  <option value="https://www.twitter.com">Twitter</option>
+                  <option value="https://x.com/livelike_ndeto?s=21">Twitter</option>
                 </select>
               </li>
             </ul>
