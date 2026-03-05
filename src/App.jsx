@@ -3,6 +3,7 @@ import Hero from './Hero.jsx';
 import About from './About.jsx';
 import HowIWork from "./HowIWork.jsx";
 import Skills from "./Skills.jsx";
+import Services from './Services.jsx';
 import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
 
@@ -21,6 +22,7 @@ function App() {
         <About />
         <HowIWork />
         <Skills />
+        <Services />
         <Projects />
         <Contact />
       </main>

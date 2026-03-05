@@ -1,0 +1,224 @@
+.services {
+  padding: 5rem 2rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.services h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+.services-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Center the lone 5th card in the 3-column layout */
+.service-card:nth-child(4) {
+  grid-column: 1;
+}
+
+.service-card:nth-child(5) {
+  grid-column: 2;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+
+.service-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+  cursor: default;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.05);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.12);
+}
+
+/* ── Icon ─────────────────────────────────────────────────── */
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #38bdf8;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-card:hover .service-icon {
+  background: rgba(56, 189, 248, 0.18);
+  color: #22d3ee;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+
+.service-card h3 {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.service-card:hover h3 {
+  color: var(--accent);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+
+.services-cta {
+  text-align: center;
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.services-cta p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.services-cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.services-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
+  opacity: 0.92;
+}
+
+/* ── Animation ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive: tablet (≤ 768px) ────────────────────────── */
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1rem;
+  }
+
+  .services h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .services-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Reset the 5th-card centering — not needed in 2-col */
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  /* Center the lone 5th card in the 2-column layout */
+  .service-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ── Responsive: mobile (≤ 480px) ────────────────────────── */
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card:nth-child(4),
+  .service-card:nth-child(5),
+  .service-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  .service-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .services-cta p {
+    font-size: 1rem;
+  }
+}

@@ -25,7 +25,17 @@ function About() {
             While backend development is my core focus, I also work with React to
             build simple, functional user interfaces that support the systems behind
             them. I&apos;m currently expanding into data analysis and competitive
-            problem-solving through hackathons and datathons.
+            problem-solving through hackathons and datathons. I also document my
+            learning journey and share insights on{' '}
+            <a
+              href="https://www.linkedin.com/in/festus-ndeto-500227262"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-link"
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </div>
       </div>

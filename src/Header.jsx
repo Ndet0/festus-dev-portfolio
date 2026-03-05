@@ -122,6 +122,15 @@ function Header() {
               </li>
               <li>
                 <a
+                  href="#services"
+                  className={activeSection === 'services' ? 'active' : ''}
+                  onClick={() => handleNavClick('services')}
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
                   href="#projects"
                   className={activeSection === 'projects' ? 'active' : ''}
                   onClick={() => handleNavClick('projects')}
