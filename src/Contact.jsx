@@ -138,7 +138,7 @@ function Contact() {
           >
             <FaLinkedin />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">
+          <a href="https://x.com/livelike_ndeto?s=21" target="_blank" rel="noopener noreferrer" title="Twitter">
             <FaTwitter />
           </a>
         </div>
