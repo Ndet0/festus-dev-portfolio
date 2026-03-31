@@ -6,75 +6,84 @@ function Projects() {
       <div className="container">
         <h2>Projects</h2>
         <div className="projects-grid">
-          {/* Project 1 */}
-          <div className="project-card">
-            <h3>Superheroes REST API</h3>
+        <div className="project-card">
+  <h3>Cafe Kaya – Full-Stack Restaurant Experience & Admin Platform</h3>
 
-            <p className="project-description">
-              Designed and implemented a RESTful API for managing heroes, superpowers,
-              and their relationships. The system models many-to-many relationships,
-              enforces validations, and exposes clean endpoints tested via Postman.
-            </p>
+  <p className="project-description">
+    Designed and developed Cafe Kaya, a modern full-stack restaurant platform that delivers
+    an immersive digital experience through interactive storytelling, dynamic menu browsing,
+    and visually rich content. The platform enables customers to explore the cafe’s offerings
+    while providing administrators with powerful tools to manage content, reviews, and customer interactions.
+  </p>
 
-            <p className="project-description">
-              This project involved setting up Flask application structure, defining
-              relational database models, running migrations, seeding data, and
-              debugging environment and routing issues to deliver a fully working API.
-            </p>
+  <p className="project-description">
+    Architected a high-performance FastAPI backend with async SQLAlchemy and JWT-based
+    authentication, supporting modular APIs for menu management, gallery systems, reviews,
+    and contact workflows. Built a responsive React + TypeScript frontend with advanced UI
+    patterns including animated sections (Framer Motion), server-state management with
+    React Query, and schema-driven form validation using Zod. Integrated Cloudinary for
+    optimized media delivery and implemented a role-based admin dashboard with full CRUD
+    capabilities and moderation pipelines.
+  </p>
 
-            <div className="project-meta">
-              <div className="meta-item">
-                <strong>Tech Stack:</strong> Python, Flask, SQLAlchemy, Flask-Migrate, SQLite
-              </div>
-              <div className="meta-item">
-                <strong>Key Focus:</strong> REST APIs, relational models, validations, debugging
-              </div>
-            </div>
-
-            <a
-              href="https://github.com/Ndet0/superheroes-code-challenge"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              View on GitHub →
-            </a>
-          </div>
-
-          {/* Project 2 */}
-          <div className="project-card">
-           <h3>Donor Management CLI Application</h3>
-
-<p className="project-description">
-  Built a command-line application to manage donors, campaigns, and donations,
-  with persistent storage and secure user authentication.
-</p>
-
-<p className="project-description">
-  The project focuses on clean data modeling, role-based command access, and
-  reliable reporting, demonstrating practical backend architecture and real-world
-  CRUD workflows without a graphical interface.
-</p>
-
-<div className="project-meta">
-  <div className="meta-item">
-    <strong>Tech Stack:</strong> Python, SQLAlchemy, Click, SQLite, Pipenv
+  <div className="project-meta">
+    <div className="meta-item">
+      <strong>Tech Stack:</strong> React, TypeScript, Vite, Tailwind CSS, shadcn/ui,
+      FastAPI, Python, PostgreSQL, SQLAlchemy (async), Alembic, React Query,
+      Zod, Framer Motion, Cloudinary, Docker
+    </div>
+    <div className="meta-item">
+      <strong>Key Focus:</strong> Full-stack architecture, async backend design,
+      REST API development, admin systems, content management workflows,
+      performance optimization, scalable UI systems
+    </div>
   </div>
-  <div className="meta-item">
-    <strong>Key Focus:</strong> CLI design, authentication, ORM-based data modeling,
-    reporting logic
-  </div>
+
+  <a
+    href="https://cafe-kaya.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="project-link"
+  >
+    View Live Application →
+  </a>
 </div>
+        <div className="project-card">
+  <h3>WEMA – Charity Donation & Campaign Management Platform</h3>
 
-<a
-  href="https://github.com/Ndet0/donor-cli"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="project-link"
->
-  View on GitHub →
-</a>
-          </div>
+  <p className="project-description">
+    Built and architected WEMA, a full-stack charity donation platform that enables
+    users to contribute to fundraising campaigns through secure one-time and recurring
+    payments, while providing administrators with tools to manage campaigns and track impact.
+  </p>
+
+  <p className="project-description">
+    Designed and implemented scalable backend services with Flask, integrating Stripe
+    and PayPal payment systems, handling webhook events with idempotency, and enforcing
+    secure HMAC-based authentication for admin operations. Developed a modern React
+    frontend with dynamic campaign browsing, donation flows, and analytics dashboards.
+  </p>
+
+  <div className="project-meta">
+    <div className="meta-item">
+      <strong>Tech Stack:</strong> React, TypeScript, Vite, Tailwind CSS, Python, Flask,
+      PostgreSQL, SQLAlchemy, Stripe API, PayPal API, Flask-Limiter, ReportLab, Vercel
+    </div>
+    <div className="meta-item">
+      <strong>Key Focus:</strong> Payment integration, webhook handling, secure backend architecture,
+      REST API design, campaign management systems, full-stack deployment
+    </div>
+  </div>
+
+  <a
+    href="https://wema-giving-api.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="project-link"
+  >
+    View Live Application →
+  </a>
+</div>
           <div className="project-card">
   <h3>Event360 – Full Stack Event Management Platform</h3>
 
@@ -140,6 +149,48 @@ function Projects() {
 
   <a
     href="https://readify-10.netlify.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="project-link"
+  >
+    View Live Application →
+  </a>
+</div>
+<div className="project-card">
+  <h3>AgriLink – Full-Stack Agriculture Community & Knowledge Platform</h3>
+
+  <p className="project-description">
+    Designed and built AgriLink, a scalable full-stack platform that connects farmers,
+    agricultural experts, and communities to share knowledge, discover insights, and
+    collaborate on modern farming practices. The platform supports content creation,
+    community engagement, and structured discussions to improve information accessibility
+    within the agriculture ecosystem.
+  </p>
+
+  <p className="project-description">
+    Architected a robust Flask backend with JWT-based authentication and role-based
+    access control (RBAC), powering features such as posts, communities, and messaging.
+    Engineered a responsive React frontend with protected routing, optimized API data
+    fetching, and seamless media handling via Cloudinary. Improved system reliability
+    and performance by addressing N+1 query issues, enforcing input sanitization, and
+    introducing database indexing strategies.
+  </p>
+
+  <div className="project-meta">
+    <div className="meta-item">
+      <strong>Tech Stack:</strong> React, Vite, Tailwind CSS, Python, Flask,
+      PostgreSQL, SQLAlchemy, JWT Authentication, Cloudinary, Flask-Migrate,
+      Vercel, Render
+    </div>
+    <div className="meta-item">
+      <strong>Key Focus:</strong> Scalable system design, REST API architecture,
+      authentication & RBAC, performance optimization, secure backend development,
+      community-driven platforms
+    </div>
+  </div>
+
+  <a
+    href="https://agrilink-sigma.vercel.app/"
     target="_blank"
     rel="noopener noreferrer"
     className="project-link"
