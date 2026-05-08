@@ -7,6 +7,45 @@ function Projects() {
         <h2>Projects</h2>
         <div className="projects-grid">
         <div className="project-card">
+  <h3>AI-Powered Conversational Chatbot Assistant</h3>
+
+  <p className="project-description">
+    Built and deployed an intelligent AI chatbot assistant capable of handling
+    real-time conversations, contextual memory, and dynamic user interactions.
+    The system was designed to provide seamless conversational experiences while
+    supporting scalable API-driven integrations for modern web applications.
+  </p>
+
+  <p className="project-description">
+    Engineered the frontend interface with React and TypeScript, creating a clean,
+    responsive chat experience with optimized state management and real-time message
+    rendering. Integrated AI model APIs and implemented backend services for session
+    handling, prompt orchestration, and secure communication between the client and AI services.
+  </p>
+
+  <div className="project-meta">
+    <div className="meta-item">
+      <strong>Tech Stack:</strong> React, TypeScript, Vite, Tailwind CSS, Python,
+      Flask, REST APIs, OpenAI API, PostgreSQL, SQLAlchemy, Vercel
+    </div>
+
+    <div className="meta-item">
+      <strong>Key Focus:</strong> Conversational AI, API integration, prompt engineering,
+      real-time messaging systems, frontend architecture, backend service design,
+      scalable AI workflows
+    </div>
+  </div>
+
+  <a
+    href="https://chatbotai-nine-theta.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="project-link"
+  >
+    View Project →
+  </a>
+</div>
+        <div className="project-card">
   <h3>Cafe Kaya – Full-Stack Restaurant Experience & Admin Platform</h3>
 
   <p className="project-description">
