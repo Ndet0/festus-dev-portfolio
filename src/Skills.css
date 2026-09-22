@@ -1,5 +1,5 @@
 .skills {
-  padding: 5rem 2rem;
+  padding: var(--section-y) var(--section-x);
   background-color: #0f172a;
   color: #e5e7eb;
 }
@@ -103,10 +103,6 @@
 }
 
 @media (max-width: 768px) {
-  .skills {
-    padding: 4rem 1rem;
-  }
-
   .skills h2 {
     font-size: 1.75rem;
     margin-bottom: 2rem;
