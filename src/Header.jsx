@@ -171,20 +171,23 @@ function Header() {
               </li>
             ))}
             <li className="nav-socials">
-              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="nav-icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  title={label}
-                  onClick={closeMenu}
-                >
-                  <Icon aria-hidden="true" />
-                </a>
-              ))}
+              {SOCIAL_LINKS.map((social) => {
+                const SocialIcon = social.Icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="nav-icon-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    title={social.label}
+                    onClick={closeMenu}
+                  >
+                    <SocialIcon aria-hidden="true" />
+                  </a>
+                );
+              })}
             </li>
           </ul>
         </nav>
