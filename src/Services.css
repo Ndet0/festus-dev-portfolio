@@ -1,5 +1,5 @@
 .services {
-  padding: 5rem 2rem;
+  padding: var(--section-y) var(--section-x);
   background-color: var(--bg-secondary);
   color: var(--text-primary);
 }
@@ -168,10 +168,6 @@
 /* ── Responsive: tablet (≤ 768px) ────────────────────────── */
 
 @media (max-width: 768px) {
-  .services {
-    padding: 4rem 1rem;
-  }
-
   .services h2 {
     font-size: 1.75rem;
     margin-bottom: 0.5rem;

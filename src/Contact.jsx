@@ -71,7 +71,7 @@ function Contact() {
           Have a project idea or just want to say hi? Let’s create something amazing together.
         </p>
 
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form onSubmit={handleSubmit} className="contact-form" aria-busy={isSubmitting}>
           <input
             type="text"
             name="name"
@@ -109,9 +109,18 @@ function Contact() {
             disabled={isSubmitting}
           ></textarea>
 
-          {error && <div className="error-message">{error}</div>}
+          {error && (
+            <div className="error-message" role="alert">
+              {error}
+            </div>
+          )}
+          {toastVisible && (
+            <div className="success-message" role="status">
+              Message sent successfully. I&apos;ll get back to you soon.
+            </div>
+          )}
 
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" className="btn-primary" disabled={isSubmitting}>
             {isSubmitting ? (
               <span className="btn-loading">
                 <span className="spinner"></span>
@@ -144,7 +153,11 @@ function Contact() {
         </div>
       </div>
 
-      {toastVisible && <div className="toast">✅ Message sent successfully!</div>}
+      {toastVisible && (
+        <div className="toast" role="status">
+          Message sent successfully!
+        </div>
+      )}
     </section>
   );
 }

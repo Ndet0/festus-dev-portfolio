@@ -1,5 +1,5 @@
 .how-i-work {
-  padding: 5rem 2rem;
+  padding: var(--section-y) var(--section-x);
   background-color: #020617;
   color: #e5e7eb;
 }
@@ -108,10 +108,6 @@
 }
 
 @media (max-width: 768px) {
-  .how-i-work {
-    padding: 4rem 1rem;
-  }
-
   .how-i-work h2 {
     font-size: 1.75rem;
     margin-bottom: 2rem;
