@@ -2,6 +2,23 @@ import './Projects.css';
 
 const projects = [
   {
+    id: 'mumplan',
+    title: 'MumPlan – Shopping Planner & Spending Tracker',
+    summary:
+      'A mobile-first app for planning shopping trips against a budget in KES, recording what was actually paid, and tracking daily, weekly, and monthly spending.',
+    tech: ['React', 'TypeScript', 'Hono', 'Bun', 'Prisma', 'PostgreSQL'],
+    liveUrl: 'https://mumplan-web.onrender.com/sign-in',
+  },
+  {
+    id: 'opsflow',
+    title: 'OPSflow – Operations & Project Management Platform',
+    summary:
+      'A web and mobile platform for managing people, departments, clients, projects, and tasks, with role-based dashboards, comment threads, and end-to-end encrypted direct messages.',
+    tech: ['React', 'TypeScript', 'Expo', 'Hono', 'Bun', 'Prisma', 'PostgreSQL'],
+    liveUrl: 'https://opsflow-web-18mx.onrender.com/login',
+    githubUrl: 'https://github.com/Ndet0/find-my-org',
+  },
+  {
     id: 'cafe-kaya',
     title: 'Cafe Kaya – Restaurant Experience & Admin Platform',
     summary:
