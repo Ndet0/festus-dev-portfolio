@@ -4,7 +4,14 @@ function HowIWork() {
   return (
     <section className="how-i-work" id="how-i-work">
       <div className="container">
-        <h2>How I Work</h2>
+        <div className="section-head center">
+          <p className="eyebrow">Process</p>
+          <h2>How I work</h2>
+          <p className="section-sub">
+            Five steps, every project. Understand first, build small, test
+            everything, leave it documented.
+          </p>
+        </div>
 
         <div className="workflow">
           <div className="workflow-step" style={{ animationDelay: '0.1s' }}>

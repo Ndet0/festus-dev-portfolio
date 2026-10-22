@@ -15,7 +15,14 @@
   --text-primary: #e5e7eb;
   --text-secondary: #cbd5f5;
   --muted: #94a3b8;
-  --section-y: 5rem;
+  --border: rgba(148, 163, 184, 0.14);
+  --border-accent: rgba(56, 189, 248, 0.3);
+  --surface: rgba(255, 255, 255, 0.03);
+  --success: #34d399;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --section-y: 6rem;
   --section-x: 1.5rem;
   --header-offset: 5.5rem;
 }
@@ -27,11 +34,11 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ===== LINKS ===== */
@@ -112,6 +119,124 @@ h3 {
   padding: 0 1.5rem;
 }
 
+/* ===== SECTION HEADER PATTERN =====
+   eyebrow (mono, accent) -> heading -> one-line subtitle.
+   Used by every section so the page reads as one system. */
+.section-head {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.section-head.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.section-head.center .eyebrow::before {
+  display: none;
+}
+
+.section-head h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.85rem;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ===== STATUS PILL (open to work + local time) ===== */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.status-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18);
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+.status-pill .sep {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.status-pill time {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18); }
+  50% { box-shadow: 0 0 0 7px rgba(52, 211, 153, 0.06); }
+}
+
+/* ===== MONO LABEL (small code-style captions) ===== */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+/* ===== TEXT LINK WITH ARROW ===== */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.link-arrow:hover {
+  gap: 0.7rem;
+  color: #22d3ee;
+}
+
 /* ===== ACCESSIBILITY: SKIP LINK ===== */
 .skip-link {
   position: absolute;
@@ -160,8 +285,22 @@ select:focus-visible {
 
 @media (max-width: 768px) {
   :root {
-    --section-y: 4rem;
+    --section-y: 4.5rem;
     --section-x: 1rem;
+  }
+
+  .section-head {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+  }
+
+  .status-pill {
+    font-size: 0.72rem;
+    gap: 0.45rem;
+    padding: 0.35rem 0.75rem 0.35rem 0.65rem;
   }
 }
 

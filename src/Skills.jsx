@@ -4,7 +4,14 @@ function Skills() {
   return (
     <section className="skills" id="skills">
       <div className="container">
-        <h2>Skills & Tech Stack</h2>
+        <div className="section-head center">
+          <p className="eyebrow">Toolkit</p>
+          <h2>Skills &amp; tech stack</h2>
+          <p className="section-sub">
+            Backend first, with enough frontend and tooling to ship the whole
+            thing.
+          </p>
+        </div>
 
         <div className="skills-container">
           <div className="skills-group" style={{ animationDelay: '0.1s' }}>
