@@ -52,9 +52,10 @@ section {
   width: 100%;
 }
 
-section[id] {
-  scroll-margin-top: var(--header-offset);
-}
+/* Anchor offset for the fixed header comes from `scroll-padding-top` on
+   <html> above. Do not also add `scroll-margin-top` here: the two stack,
+   which lands sections twice the header height down the page and breaks
+   the nav's active-link tracking. */
 
 /* ===== SHARED BUTTONS ===== */
 .btn-primary,

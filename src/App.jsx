@@ -6,6 +6,7 @@ import Skills from "./Skills.jsx";
 import Services from './Services.jsx';
 import Projects from './Projects.jsx';
 import Events from './Events.jsx';
+import CreatorJourney from './CreatorJourney.jsx';
 import Contact from './Contact.jsx';
 import Footer from './Footer.jsx';
 
@@ -27,6 +28,7 @@ function App() {
         <Services />
         <Projects />
         <Events />
+        <CreatorJourney />
         <Contact />
       </main>
       <Footer />
