@@ -1,6 +1,12 @@
+
 import './Header.css';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaXTwitter,
+} from 'react-icons/fa6';
 
 const NAV_LINKS = [
   { id: 'home', href: '#home', label: 'Home' },
@@ -8,6 +14,7 @@ const NAV_LINKS = [
   { id: 'projects', href: '#projects', label: 'Projects' },
   { id: 'skills', href: '#skills', label: 'Skills' },
   { id: 'events', href: '#events', label: 'Events' },
+  { id: 'creator', href: '#creator', label: 'Creator' },
   { id: 'contact', href: '#contact', label: 'Contact' },
 ];
 
@@ -40,43 +47,109 @@ function Header() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const lastScrollTime = useRef(0);
   const headerRef = useRef(null);
+  const clickedSectionRef = useRef(null);
 
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
   const handleNavClick = (section) => {
+    clickedSectionRef.current = section;
     setActiveSection(section);
     closeMenu();
   };
 
-  const handleScroll = useCallback(() => {
-    const now = Date.now();
-    if (now - lastScrollTime.current < 100) return;
-    lastScrollTime.current = now;
-
-    setIsScrolled(window.scrollY > 50);
-
-    let current = 'home';
-    for (const { id } of NAV_LINKS) {
-      const section = document.getElementById(id);
-      if (!section) continue;
-      if (window.scrollY >= section.offsetTop - HEADER_OFFSET) {
-        current = id;
-      }
-    }
-
-    if (window.scrollY < 100) {
-      current = 'home';
-    }
-
-    setActiveSection(current);
-  }, []);
-
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    // Sort by document position, not nav order. The nav lists Projects
+    // before Skills while the page renders Skills before Projects, so
+    // iterating in nav order would highlight Skills while viewing Projects.
+    const sections = NAV_LINKS
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean)
+      .sort((a, b) =>
+        a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING
+          ? -1
+          : 1,
+      );
+
+    const updateScrolled = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    const updateActiveSection = () => {
+      updateScrolled();
+
+      const atPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5;
+
+      // The active item is the last section whose top has crossed
+      // the fixed header's activation line.
+      const activationLine = window.scrollY + HEADER_OFFSET + 20;
+      let current = 'home';
+
+      if (atPageBottom) {
+        current = 'contact';
+      } else {
+        for (const section of sections) {
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          if (top <= activationLine) {
+            current = section.id;
+          }
+        }
+      }
+
+      // After a nav click, keep the clicked link lit until the smooth
+      // scroll actually reaches it instead of flashing through the
+      // sections in between.
+      const target = clickedSectionRef.current;
+      if (target) {
+        if (current !== target) return;
+        clickedSectionRef.current = null;
+      }
+
+      setActiveSection(current);
+    };
+
+    // A manual scroll cancels the pending nav-click target so tracking
+    // follows the user again.
+    const releaseClickTarget = () => {
+      clickedSectionRef.current = null;
+    };
+
+    // Listen immediately and after scrolling. The initial call ensures
+    // the correct link is highlighted if the page loads at a hash URL.
+    updateActiveSection();
+
+    window.addEventListener('scroll', updateActiveSection, {
+      passive: true,
+    });
+    window.addEventListener('resize', updateActiveSection);
+    window.addEventListener('wheel', releaseClickTarget, { passive: true });
+    window.addEventListener('touchstart', releaseClickTarget, {
+      passive: true,
+    });
+    window.addEventListener('keydown', releaseClickTarget);
+
+    const handleHashChange = () => {
+      const targetId = window.location.hash.slice(1);
+      if (NAV_LINKS.some((link) => link.id === targetId)) {
+        clickedSectionRef.current = targetId;
+        setActiveSection(targetId);
+      }
+      updateActiveSection();
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+      window.removeEventListener('wheel', releaseClickTarget);
+      window.removeEventListener('touchstart', releaseClickTarget);
+      window.removeEventListener('keydown', releaseClickTarget);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   useEffect(() => {
     const { body, documentElement } = document;
@@ -95,7 +168,10 @@ function Header() {
     };
 
     const handlePointerDown = (event) => {
-      if (headerRef.current && !headerRef.current.contains(event.target)) {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target)
+      ) {
         closeMenu();
       }
     };
@@ -121,7 +197,10 @@ function Header() {
   }, [closeMenu]);
 
   return (
-    <header ref={headerRef} className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header
+      ref={headerRef}
+      className={`header ${isScrolled ? 'scrolled' : ''}`}
+    >
       {isMenuOpen && (
         <div
           className="nav-backdrop"
@@ -134,6 +213,8 @@ function Header() {
         <h1
           className="logo"
           onClick={() => {
+            clickedSectionRef.current = 'home';
+            setActiveSection('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             closeMenu();
           }}
@@ -145,13 +226,15 @@ function Header() {
           type="button"
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMenuOpen((open) => !open)}
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={
+            isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
+          }
           aria-expanded={isMenuOpen}
           aria-controls="primary-navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
 
         <nav
@@ -165,16 +248,20 @@ function Header() {
                 <a
                   href={link.href}
                   className={activeSection === link.id ? 'active' : ''}
-                  aria-current={activeSection === link.id ? 'page' : undefined}
+                  aria-current={
+                    activeSection === link.id ? 'location' : undefined
+                  }
                   onClick={() => handleNavClick(link.id)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+
             <li className="nav-socials">
               {SOCIAL_LINKS.map((social) => {
                 const SocialIcon = social.Icon;
+
                 return (
                   <a
                     key={social.label}
