@@ -66,9 +66,20 @@ function Contact() {
       <div className="overlay"></div>
 
       <div className="contact-content fade-in">
-        <h1>Let’s Connect</h1>
-        <p className="contact-subtitle">
-          Have a project idea or just want to say hi? Let’s create something amazing together.
+        <div className="section-head center">
+          <p className="eyebrow">Contact</p>
+          <h2>Ready to build something?</h2>
+          <p className="section-sub">
+            Whether it&apos;s a new product, an API that needs fixing, or a role
+            on your team, send a message and I&apos;ll get back to you.
+          </p>
+        </div>
+
+        <p className="contact-direct">
+          Prefer email?{' '}
+          <a href="mailto:festuskisoi@gmail.com" className="link-arrow">
+            festusndet00@gmail.com
+          </a>
         </p>
 
         <form onSubmit={handleSubmit} className="contact-form" aria-busy={isSubmitting}>
@@ -133,7 +144,7 @@ function Contact() {
         </form>
 
         <div className="social-icons">
-          <a href="mailto:festuskisoi@gmail.com" title="Email">
+          <a href="mailto:festusndet00@gmail.com" title="Email">
             <FaEnvelope />
           </a>
           <a href="https://github.com/Ndet0" target="_blank" rel="noopener noreferrer" title="GitHub">

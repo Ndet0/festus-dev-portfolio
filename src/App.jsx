@@ -7,6 +7,7 @@ import Services from './Services.jsx';
 import Projects from './Projects.jsx';
 import Events from './Events.jsx';
 import Contact from './Contact.jsx';
+import Footer from './Footer.jsx';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Events />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

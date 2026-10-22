@@ -22,20 +22,34 @@ function Events() {
     };
   }, []);
 
-  // Nothing to show if the API is down; the nav link then simply scrolls nowhere.
-  if (failed || events === null) return null;
+  // The section always renders so the "Events" nav link has somewhere to land,
+  // even when the Netlify function behind /api/events is unavailable (e.g. plain
+  // `vite` dev without `netlify dev`).
+  let body = null;
+  if (failed) {
+    body = (
+      <p className="events-empty">
+        Photos couldn&apos;t be loaded right now. Check back soon.
+      </p>
+    );
+  } else if (events && events.length === 0) {
+    body = <p className="events-empty">First batch of photos coming soon.</p>;
+  }
 
   return (
     <section className="events" id="events">
       <div className="container">
-        <h2>Events</h2>
-        <p className="events-intro">
-          Photos from the meetups, hackathons and conferences I show up to.
-        </p>
+        <div className="section-head center">
+          <p className="eyebrow">Community</p>
+          <h2>Events</h2>
+          <p className="section-sub">
+            Photos from the meetups, hackathons and conferences I show up to.
+          </p>
+        </div>
 
-        {events.length === 0 ? (
-          <p className="events-empty">First batch of photos coming soon.</p>
-        ) : (
+        {body}
+
+        {events && events.length > 0 && (
           <div className="events-grid">
             {events.map((event) => (
               <button

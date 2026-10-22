@@ -4,6 +4,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 
 const NAV_LINKS = [
   { id: 'home', href: '#home', label: 'Home' },
+  { id: 'about', href: '#about', label: 'About' },
   { id: 'projects', href: '#projects', label: 'Projects' },
   { id: 'skills', href: '#skills', label: 'Skills' },
   { id: 'events', href: '#events', label: 'Events' },
@@ -137,7 +138,7 @@ function Header() {
             closeMenu();
           }}
         >
-          Festus Dev
+          Festus Kisoi
         </h1>
 
         <button

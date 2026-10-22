@@ -1,27 +1,7 @@
 .how-i-work {
   padding: var(--section-y) var(--section-x);
-  background-color: #020617;
-  color: #e5e7eb;
-}
-
-.how-i-work h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.how-i-work h2::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--accent);
-  border-radius: 2px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .workflow {
@@ -63,8 +43,9 @@
 }
 
 .step-number {
-  font-size: 0.85rem;
-  font-weight: bold;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
   color: #38bdf8;
   background-color: rgba(56, 189, 248, 0.1);
   padding: 0.25rem 0.75rem;
@@ -108,11 +89,6 @@
 }
 
 @media (max-width: 768px) {
-  .how-i-work h2 {
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-  }
-
   .workflow {
     gap: 1.5rem;
   }

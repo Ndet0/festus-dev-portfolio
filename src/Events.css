@@ -3,27 +3,6 @@
   background-color: var(--bg-secondary);
 }
 
-.events h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.events h2::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--accent);
-  border-radius: 2px;
-}
-
-.events-intro,
 .events-empty {
   text-align: center;
   color: var(--text-secondary);
@@ -253,10 +232,6 @@
 }
 
 @media (max-width: 768px) {
-  .events h2 {
-    font-size: 1.75rem;
-  }
-
   .events-grid {
     grid-template-columns: 1fr;
   }
