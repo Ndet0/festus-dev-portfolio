@@ -36,17 +36,20 @@ function Hero() {
 
       <div className={`hero-image ${isVisible ? 'animate' : ''}`}>
         <div className="image-wrapper">
-          <img
-            src="/prof2.jpeg"
-            alt="Festus Kisoi, backend-focused full-stack engineer"
-            width="380"
-            height="380"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            onLoad={() => setImageLoaded(true)}
-            className={imageLoaded ? 'loaded' : ''}
-          />
+          <picture>
+            <source srcSet="/prof2.webp" type="image/webp" />
+            <img
+              src="/prof2.jpeg"
+              alt="Festus Kisoi, backend-focused full-stack engineer"
+              width="380"
+              height="380"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              onLoad={() => setImageLoaded(true)}
+              className={imageLoaded ? 'loaded' : ''}
+            />
+          </picture>
           {!imageLoaded && <div className="image-placeholder" aria-hidden="true"></div>}
         </div>
       </div>
