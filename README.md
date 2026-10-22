@@ -114,6 +114,24 @@ It serves both as a showcase of completed work and a foundation for future exper
 
 ---
 
+## 📸 Uploading event photos
+
+The **Events** section shows photos from tech events, grouped by event. Photos are
+uploaded from a phone through the private page at `/admin` on the live site.
+
+- Files are stored on [UploadThing](https://uploadthing.com); event details live in
+  Netlify Blobs. Both are handled by the Netlify Functions in `netlify/functions/`.
+- The page is protected by a single password (`ADMIN_PASSWORD`). Set it, along with
+  `UPLOADTHING_TOKEN`, in the Netlify environment variables and in your local `.env`
+  (see `.env.example`).
+- Photos are resized in the browser before upload, so even large iPhone shots stay small.
+- To run the full stack locally (site + functions + blobs): `npm run dev:full`.
+
+Tip: on iPhone, open `/admin` in Safari and use Share → **Add to Home Screen** for a
+one-tap upload shortcut.
+
+---
+
 ## 📫 Contact
 
 Interested in collaborating, mentorship, or opportunities?  
