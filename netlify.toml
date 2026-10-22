@@ -2,6 +2,17 @@
   command = "npm run build"
   publish = "dist"
 
+[functions]
+  directory = "netlify/functions"
+
+# Keep the private upload page out of search engines.
+[[headers]]
+  for = "/admin"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Single-page app: every path serves index.html. Functions declare their own
+# /api/* paths in code, which take precedence over this rewrite.
 [[redirects]]
   from = "/*"
   to = "/index.html"

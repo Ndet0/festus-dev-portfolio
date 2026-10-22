@@ -5,6 +5,7 @@ import HowIWork from "./HowIWork.jsx";
 import Skills from "./Skills.jsx";
 import Services from './Services.jsx';
 import Projects from './Projects.jsx';
+import Events from './Events.jsx';
 import Contact from './Contact.jsx';
 
 
@@ -24,6 +25,7 @@ function App() {
         <Skills />
         <Services />
         <Projects />
+        <Events />
         <Contact />
       </main>
     </>
